@@ -24,13 +24,13 @@
       <li><%= value[:question] %> (<%= value[:responses] %>)</li>
     <% end %>
   </ol>
-  <strong>Form Complexity</strong>: <%= questions['complexity'] %> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="The survey complexity score factors in the approximated difficulty for the user to complete a given question type.  For example, a “yes / no” question would have a “lower complexity score” as compared to a “list ranking” where the user has to choose an order for a set of given elements.">What is this?</button>
 
   <h2>Incomplete Responses</h2>
   <ul>
     <% drop_off.each do |key,value| %>
       <%= value %> people dropped off at question "<%= questions[key][:question] %>" :(
     <% end %>
+    <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="The drop off questions show where your users dropped off when they incompletely filled out your survey.">What is this?</button>
   </ul>
 
   <hr/>
@@ -39,6 +39,7 @@
     <li>Total number of questions: <%= questions.length %></li>
     <li>Required questions: <%= required_questions %></li>
     <li>User flow complexity: <%= user_flow %></li>
+    <li><strong>Form Complexity</strong>: <%= questions['complexity'] %> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="The survey complexity score factors in the approximated difficulty for the user to complete a given question type.  For example, a “yes / no” question would have a “lower complexity score” as compared to a “list ranking” where the user has to choose an order for a set of given elements.">What is this?</button></li>
   </ul>
 </div>
 <%# incomplete_data %>
