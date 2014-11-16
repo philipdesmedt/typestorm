@@ -20,7 +20,7 @@
 
   <h2>Metrics</h2>
   <ul>
-    <li>Total number of questions: <span class="badge"><%= questions.length %></span></li>
+    <li>Total number of questions: <span class="badge"><%= questions.length-1 %></span></li>
     <li>Required questions: <span class="badge"><%= required_questions %></span></li>
     <li><strong>User flow complexity</strong>: <span class="badge"><%= user_flow %></span></li>
     <li><strong>Form Complexity</strong>: <span class="badge"><%= questions['complexity'] %></span><button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="The survey complexity score factors in the approximated difficulty for the user to complete a given question type.  For example, a “yes / no” question would have a “lower complexity score” as compared to a “list ranking” where the user has to choose an order for a set of given elements.">What is this?</button></li>
