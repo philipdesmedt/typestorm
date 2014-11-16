@@ -5,6 +5,7 @@
       <th>Total Responses</th>
       <th>Complete Responses</th>
       <th>Incomplete Responses</th>
+      <th>Conversion Rate</th>
     </thead>
     <tbody>
       <tr>
@@ -12,6 +13,7 @@
         <td><%= data['stats']['responses']['total'] %></td>
         <td><%= data['stats']['responses']['completed'] %></td>
         <td><%= data['stats']['responses']['total'].to_i-data['stats']['responses']['completed'].to_i %></td>
+        <td><%= conversion_rate %>%</td>
       </tr>
     </tbody>
   </table>
@@ -22,7 +24,7 @@
       <li><%= value[:question] %> (<%= value[:responses] %>)</li>
     <% end %>
   </ol>
-  <strong>Form Complexity</strong>: <%= questions['complexity'] %>
+  <strong>Form Complexity</strong>: <%= questions['complexity'] %> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="The survey complexity score factors in the approximated difficulty for the user to complete a given question type.  For example, a “yes / no” question would have a “lower complexity score” as compared to a “list ranking” where the user has to choose an order for a set of given elements.">What is this?</button>
 
   <h2>Incomplete Responses</h2>
   <ul>
@@ -39,3 +41,7 @@
   </ul>
 </div>
 <%# incomplete_data %>
+
+<script>
+  $('.btn.btn-default').tooltip();
+</script>

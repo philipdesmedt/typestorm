@@ -20,7 +20,9 @@ class Analytics
           question: question['question'],
           responses: data['responses'].map{ |r| r['answers'] }.select{ |s| s[id] }.count
         }
-        if id.include? "yesno"
+        if question['question'].include? "email"
+          complexity += 1.5
+        elsif id.include? "yesno"
           complexity += 0.1
         elsif id.include? "rating"
           complexity += 0.2
@@ -52,7 +54,11 @@ class Analytics
       analytics['questions_one'] = Analytics.filter_unique_questions(analytics['data_one'], analytics['incomplete_data_one'])
       analytics['questions_two'] = Analytics.filter_unique_questions(analytics['data_two'], analytics['incomplete_data_two'])
       
-      analytics['best_version'] = best_version
+      analytics['conversion_rate_one'] = ((analytics['data_one']['stats']['responses']['completed'].to_f/analytics['data_one']['stats']['responses']['total'].to_f)*100).round(2)
+      analytics['conversion_rate_two'] = ((analytics['data_two']['stats']['responses']['completed'].to_f/analytics['data_two']['stats']['responses']['total'].to_f)*100).round(2)
+
+      best_ab_version = best_version(analytics)
+      analytics['best_ab_version'] = best_ab_version
     rescue Exception => e
       puts "ERROR: #{e.message}"
     end
@@ -60,8 +66,36 @@ class Analytics
   end
 
   private
-    def best_version
-      
+    def best_version(analytics)
+      # Conversion Rate
+      # Complexity
+      # Number of Questions
+      a_score = 0
+      b_score = 0
+      if analytics['conversion_rate_one'] > analytics['conversion_rate_two']
+        a_score += 2
+      else
+        b_score += 2
+      end
+
+      if analytics['questions_one']['complexity'] > analytics['questions_two']['complexity']
+        b_score += 1
+      else
+        a_score += 1
+      end
+
+      if analytics['questions_one'].length-1 > analytics['questions_two'].length-1
+        a_score += 1
+      else
+        b_score += 1
+      end
+
+      winner = a_score > b_score ? 'a' : 'b'
+      return {
+        "winner" => winner,
+        "a_score" => a_score*25,
+        "b_score" => b_score*25
+      }
     end
 
     def get_social_sources(data)
