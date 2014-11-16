@@ -59,6 +59,8 @@ class Analytics
 
       best_ab_version = best_version(analytics)
       analytics['best_ab_version'] = best_ab_version
+      analytics['flow_one'] = (analytics['questions_one'].length-1/analytics['required_questions_one']).to_f
+      analytics['flow_two'] = (analytics['questions_two'].length-1/analytics['required_questions_two']).to_f
     rescue Exception => e
       puts "ERROR: #{e.message}"
     end

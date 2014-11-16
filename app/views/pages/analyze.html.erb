@@ -2,15 +2,15 @@
   <p><%= link_to "Back", root_path %></p>
   <h1>Our TypeBot found the following</h1>
   <div class="row">
-    <h1>Best Version: <%= @analytics['best_ab_version']['winner'] %></h1>
     <div class="col-md-12">
+      <h1>Best Version: <%= @analytics['best_ab_version']['winner'] %></h1>
       <div class="col-md-6">
         <h2>Version A (<%= @analytics['best_ab_version']['a_score'] %>/100)</h2>
-        <%= render partial: 'pages/response_table', locals: { data: @analytics['data_one'], incomplete_data: @analytics['incomplete_data_one'], drop_off: @analytics['drop_off_one'], required_questions: @analytics['required_questions_one'], questions: @analytics['questions_one'], conversion_rate: @analytics['conversion_rate_one'] } %>
+        <%= render partial: 'pages/response_table', locals: { data: @analytics['data_one'], incomplete_data: @analytics['incomplete_data_one'], drop_off: @analytics['drop_off_one'], required_questions: @analytics['required_questions_one'], questions: @analytics['questions_one'], conversion_rate: @analytics['conversion_rate_one'], user_flow: @analytics['flow_one'] } %>
       </div>
       <div class="col-md-6">
         <h2>Version B (<%= @analytics['best_ab_version']['b_score'] %>/100)</h2>
-        <%= render partial: 'pages/response_table', locals: { data: @analytics['data_two'], incomplete_data: @analytics['incomplete_data_two'], drop_off: @analytics['drop_off_two'], required_questions: @analytics['required_questions_two'], questions: @analytics['questions_two'], conversion_rate: @analytics['conversion_rate_two'] } %>
+        <%= render partial: 'pages/response_table', locals: { data: @analytics['data_two'], incomplete_data: @analytics['incomplete_data_two'], drop_off: @analytics['drop_off_two'], required_questions: @analytics['required_questions_two'], questions: @analytics['questions_two'], conversion_rate: @analytics['conversion_rate_two'], user_flow: @analytics['flow_two'] } %>
       </div>
     </div>
   </div>
