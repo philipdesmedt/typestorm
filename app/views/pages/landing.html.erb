@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="header">
+    <nav>
+      <ul class="nav nav-pills pull-right">
+        <li role="presentation"><a href="#">About</a></li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">Typestorm</h3>
+  </div>
+
+  <div class="jumbotron">
+    <p>DISCLAIMER: This is very buggy and highly WIP</p>
+    <h1>Ugly A/B testing for Typeforms</h1>
+    <p class="lead">Simply enter two Typeform URLs and we'll tell you which one has performed the best</p>
+    <%= form_tag analyze_path, class: 'form-horizontal' do %>
+      <div class="form-group">
+        <%= label_tag "version_a", "Version A", class: "col-sm-2 control-label" %>
+        <div class="col-sm-5">
+          <%= text_field_tag "url1", "https://cmceezee.typeform.com/to/YuMcpa", placeholder: 'Typeform URL of Version A', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= label_tag "version_b", "Version B", class: "col-sm-2 control-label" %>
+        <div class="col-sm-5">
+          <%= text_field_tag "url2", "https://cmceezee.typeform.com/to/WEgewX", placeholder: 'Typeform URL of Version B', class: 'form-control' %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-4 col-md-offset-2">
+          <%= submit_tag "Try our example Typeforms", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row marketing">
+    <div class="col-lg-6">
+      <h4>Feature 1</h4>
+      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+      <h4>Feature 2</h4>
+      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+    </div>
+
+    <div class="col-lg-6">
+      <h4>Feature 3</h4>
+      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+      <h4>Feature 4</h4>
+      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; Built by Chris, Philip and bitch nigga 2014</p>
+  </footer>
+
+</div> <!-- /container -->

@@ -1,0 +1,37 @@
+<div class="container">
+  <p><%= link_to "Back", root_path %></p>
+  <h1>Our TypeBot found the following</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="col-md-6">
+        <h2>Version A</h2>
+        <%= render partial: 'pages/response_table', locals: { data: @analytics['data_one'], incomplete_data: @analytics['incomplete_data_one'], drop_off: @analytics['drop_off_one'], required_questions: @analytics['required_questions_one'], questions: @analytics['questions_one'] } %>
+      </div>
+      <div class="col-md-6">
+        <h2>Version B</h2>
+        <%= render partial: 'pages/response_table', locals: { data: @analytics['data_two'], incomplete_data: @analytics['incomplete_data_two'], drop_off: @analytics['drop_off_two'], required_questions: @analytics['required_questions_two'], questions: @analytics['questions_two'] } %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>Recommendations for your A/B Test</h1>
+      <ol>
+        <li>Have a single, well-defined objective.</li>
+        <li>Keep your survey short.</li>
+        <li>Design your survey for easily measurable results.</li>
+        <li>Ask one thing per question.</li>
+        <li>Search for ands?</li>
+        <li>Avoid biasing the response.</li>
+        <li>Limit required questions.</li>
+        <li>Question order matters.</li>
+        <li>Create a logical flow.</li>
+        <li>Bundled questions?</li>
+        <li>Test the survey.</li>
+        <li>Spell out time expectations in your invite and on the greeting page.</li>
+        <li>Get it in front of the right people.</li>
+        <li>Share the results and actions with respondents.</li>
+      </ol>
+    </div>
+  </div>
+</div>

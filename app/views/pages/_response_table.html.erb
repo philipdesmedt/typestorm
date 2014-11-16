@@ -1,0 +1,41 @@
+<div class="">
+  <table class="table">
+    <thead>
+      <th></th>
+      <th>Total Responses</th>
+      <th>Complete Responses</th>
+      <th>Incomplete Responses</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><%= data['stats']['responses']['total'] %></td>
+        <td><%= data['stats']['responses']['completed'] %></td>
+        <td><%= data['stats']['responses']['total'].to_i-data['stats']['responses']['completed'].to_i %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Questions</h2>
+  <ol>
+    <% questions.except('complexity').each do |key,value| %>
+      <li><%= value[:question] %> (<%= value[:responses] %>)</li>
+    <% end %>
+  </ol>
+  <strong>Form Complexity</strong>: <%= questions['complexity'] %>
+
+  <h2>Incomplete Responses</h2>
+  <ul>
+    <% drop_off.each do |key,value| %>
+      <%= value %> people dropped off at question "<%= questions[key][:question] %>" :(
+    <% end %>
+  </ul>
+
+  <hr/>
+  <h2>Metrics</h2>
+  <ul>
+    <li>Total number of questions: <%= questions.length %></li>
+    <li>Required questions: <%= required_questions %></li>
+  </ul>
+</div>
+<%# incomplete_data %>
