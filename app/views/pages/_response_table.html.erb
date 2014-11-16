@@ -13,7 +13,7 @@
         <td><%= data['stats']['responses']['total'] %></td>
         <td><%= data['stats']['responses']['completed'] %></td>
         <td><%= data['stats']['responses']['total'].to_i-data['stats']['responses']['completed'].to_i %></td>
-        <td><%= conversion_rate %>%</td>
+        <td><span class="badge"><%= conversion_rate %>%</span></td>
       </tr>
     </tbody>
   </table>
@@ -36,10 +36,10 @@
   <hr/>
   <h2>Metrics</h2>
   <ul>
-    <li>Total number of questions: <%= questions.length %></li>
-    <li>Required questions: <%= required_questions %></li>
-    <li>User flow complexity: <%= user_flow %></li>
-    <li><strong>Form Complexity</strong>: <%= questions['complexity'] %> <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="The survey complexity score factors in the approximated difficulty for the user to complete a given question type.  For example, a “yes / no” question would have a “lower complexity score” as compared to a “list ranking” where the user has to choose an order for a set of given elements.">What is this?</button></li>
+    <li>Total number of questions: <span class="badge"><%= questions.length %></span></li>
+    <li>Required questions: <span class="badge"><%= required_questions %></span></li>
+    <li><strong>User flow complexity</strong>: <span class="badge"><%= user_flow %></span></li>
+    <li><strong>Form Complexity</strong>: <span class="badge"><%= questions['complexity'] %></span><button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="The survey complexity score factors in the approximated difficulty for the user to complete a given question type.  For example, a “yes / no” question would have a “lower complexity score” as compared to a “list ranking” where the user has to choose an order for a set of given elements.">What is this?</button></li>
   </ul>
 </div>
 <%# incomplete_data %>
